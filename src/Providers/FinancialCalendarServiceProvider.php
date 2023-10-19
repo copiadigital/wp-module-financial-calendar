@@ -9,8 +9,8 @@ class FinancialCalendarServiceProvider implements Provider
     protected function providers()
     {
         return [
-            // CommandServiceProvider::class,
-            // RegisterPostType::class,
+            CommandServiceProvider::class,
+            RegisterPostType::class,
         ];
     }
 
