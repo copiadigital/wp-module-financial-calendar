@@ -10,6 +10,7 @@ class FinancialCalendarServiceProvider implements Provider
     {
         return [
             CommandServiceProvider::class,
+            RegisterAssets::class,
             RegisterPostType::class,
         ];
     }
