@@ -1,0 +1,27 @@
+{
+  "name": "copiadigital/financial-calendar",
+  "type": "wordpress-plugin",
+  "license": "MIT",
+  "description": "Financial calendar template",
+  "homepage": "https://github.com/copiadigital/financial-calendar",
+  "authors": [
+    {
+      "name": "Copia Digital Dev Team",
+      "email": "info@copiadigital.com",
+      "homepage": "https://github.com/copiadigital"
+    }
+  ],
+  "keywords": [
+    "wordpress"
+  ],
+  "autoload": {
+    "psr-4": {
+      "Results\\": "src/"
+    }
+  },
+  "require": {
+    "php": "^7.1|^8.0"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
