@@ -12,6 +12,6 @@ class CommandServiceProvider implements Provider
             return;
         }
 
-        \WP_CLI::add_command('results', FinancialCalendarCommand::class);
+        \WP_CLI::add_command('financial_calendar', FinancialCalendarCommand::class);
     }
 }
