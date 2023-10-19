@@ -14,10 +14,6 @@ class Calendar extends Field
      */
     public function fields()
     {
-        if(!get_field('enable_cpt_calendar', 'option')) {
-            return;
-        }
-
         $Calendar = new FieldsBuilder('calendar', [
             'title' => 'Fields',
             'menu_order' => 0,
