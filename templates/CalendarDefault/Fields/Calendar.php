@@ -14,6 +14,10 @@ class Calendar extends Field
      */
     public function fields()
     {
+        if(!is_plugin_active('financial-calendar/financial-calendar.php')) {
+            return;
+        }
+
         $Calendar = new FieldsBuilder('calendar', [
             'title' => 'Fields',
             'menu_order' => 0,

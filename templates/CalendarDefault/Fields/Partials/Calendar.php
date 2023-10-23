@@ -14,11 +14,15 @@ class Calendar extends Partial
      */
     public function fields()
     {
+        if(!is_plugin_active('financial-calendar/financial-calendar.php')) {
+            return;
+        }
+
         $Calendar = new FieldsBuilder('calendar');
 
         $Calendar
             ->addText('title', [
-                'label' => 'title',
+                'label' => 'Title',
                 'instructions' => 'Please enter a title to appear above the financial calendar.',
             ]);
         return $Calendar;
