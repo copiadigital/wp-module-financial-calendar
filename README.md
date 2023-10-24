@@ -1,6 +1,46 @@
 # How to use
 
-1. ### Copy templates by using wp-cli
+1. ### Initialize field by using wp-cli
+
+   _Run from your local machine, in a new terminal tab_
+   ```sh
+   wp financial_calendar financial_calendar_init
+   ```
+
+---
+2. ### Enabling calender in page builder
+
+  To enable calendar builder layout, go to `Builder.php` under to your sage theme. Search Calendar and uncomment it.
+  
+  _Uncomment this line of code:_
+  ```sh
+  // ->addLayout($this->get(Calendar::class), [
+  //     'label' => 'Calendar',
+  //     'display' => 'block',
+  // ])
+  ```
+
+---
+3. ### Enabling calender in views template
+
+  To enable calendar in views template, go to `resources/views/partials/builder` directory & edit `layout_container.blade.php`.
+  
+  _replace this line of code:_
+  ```sh
+    @includeFirst([
+    'partials.builder.' . $build['acf_fc_layout'],
+  ], $build)
+  ```
+
+  _with this line of code:_
+  ```sh
+  @includeFirst([
+    'partials.builder.' . $build['acf_fc_layout'],
+    'FinancialCalendar::partials.builder.' . $build['acf_fc_layout']
+  ], $build)
+  ```
+
+2. ### Overriding the templates by using wp-cli
 
    _Run from your local machine, in a new terminal tab_
    ```sh
@@ -20,15 +60,4 @@
     });
    ```
 
----
-3. ### Enabling calender in page builder
 
-  To enable calendar builder layout, go to `Builder.php` under to your sage theme. Search Calendar and uncomment it.
-  
-  _Uncomment this line of code:_
-  ```sh
-  // ->addLayout($this->get(Calendar::class), [
-  //     'label' => 'Calendar',
-  //     'display' => 'block',
-  // ])
-  ```
