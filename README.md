@@ -40,7 +40,7 @@
   ], $build)
   ```
 
-2. ### Overriding the templates by using wp-cli
+4. ### Overriding the templates by using wp-cli
 
    _Run from your local machine, in a new terminal tab_
    ```sh
@@ -48,7 +48,7 @@
    ```
 
 ---
-2. ### Altering taxonomies
+5. ### Altering taxonomies
 
   We can use `financial_calendar_tax_before_insert` hook in the filter.php to alter taxonomy. For example we want to remove taxonomy type
 
