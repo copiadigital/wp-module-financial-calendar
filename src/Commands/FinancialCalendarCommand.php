@@ -10,6 +10,30 @@ class FinancialCalendarCommand extends \WP_CLI_Command
     }
 
     /**
+     * command usage: wp financial_calendar financial_calendar_init
+     */
+    public function financial_calendar_init()
+    {
+        $field_plugin_dir = FINANCIAL_CALENDAR_PLUGIN_DIR . 'templates/CalendarDefault/Fields/Calendar.php';
+        $field_theme_dir = get_stylesheet_directory() . '/app/Fields/Calendar.php';
+
+        $field_partial_plugin_dir = FINANCIAL_CALENDAR_PLUGIN_DIR . 'templates/CalendarDefault/Fields/Partials/Calendar.php';
+        $field_partial_theme_dir = get_stylesheet_directory() . '/app/Fields/Partials/Builder/Layouts/Calendar.php';
+
+        if(!copy($field_plugin_dir, $field_theme_dir)) {
+            echo "\nfailed to copy $field_plugin_dir to $field_theme_dir...\n";
+        }else {
+            echo "\nSuccessfully copy $field_plugin_dir to $field_theme_dir...\n";
+        }
+
+        if(!copy($field_partial_plugin_dir, $field_partial_theme_dir)) {
+            echo "\nfailed to copy $field_partial_plugin_dir to $field_partial_theme_dir...\n";
+        }else {
+            echo "\nSuccessfully copy $field_partial_plugin_dir to $field_partial_theme_dir...\n";
+        }
+    }
+
+    /**
      * command usage: wp financial_calendar financial_calendar_default
      */
     public function financial_calendar_default()
