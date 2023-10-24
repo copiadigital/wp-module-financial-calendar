@@ -2,7 +2,8 @@
 
 namespace FinancialCalendar\Providers;
 
-use FinancialCalendar\View\Composers\App;
+use Illuminate\Support\Facades\View;
+use FinancialCalendar\View\Composers\Calendar;
 
 class FinancialCalendarServiceProvider implements Provider
 {
@@ -24,6 +25,13 @@ class FinancialCalendarServiceProvider implements Provider
 
     public function boot()
     {
+        if ( function_exists( '\Roots\view' ) ) {
+            \Roots\view()->addNamespace('FinancialCalendar', FINANCIAL_CALENDAR_PLUGIN_DIR . 'resources/views/');
+
+            // \Roots\view('FinancialCalendar::partials.builder.calendar', ['test' => 'variable'])->render();
+        }
+
+        View::composer('FinancialCalendar::partials.builder.calendar', Calendar::class);
 
     }
 }
