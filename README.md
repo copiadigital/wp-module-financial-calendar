@@ -27,7 +27,7 @@
   
   _replace this line of code:_
   ```sh
-    @includeFirst([
+  @includeFirst([
     'partials.builder.' . $build['acf_fc_layout'],
   ], $build)
   ```
