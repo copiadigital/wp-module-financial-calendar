@@ -1,0 +1,23 @@
+{
+  "name": "copia_financial_calendar",
+  "version": "1.0.0",
+  "private": true,
+  "browserslist": [
+    "extends @wordpress/browserslist-config"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "build": "mix",
+    "build:production": "mix --production",
+    "start": "mix watch"
+  },
+  "devDependencies": {
+    "@wordpress/browserslist-config": "^4.0.0",
+    "laravel-mix": "^6.0.43"
+  },
+  "dependencies": {
+    "ics": "2.27.0"
+  }
+}
