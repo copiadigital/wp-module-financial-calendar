@@ -1,18 +1,25 @@
 {
   "name": "copiadigital/financial-calendar",
-  "type": "wordpress-plugin",
+  "type": "copia-modules",
   "license": "MIT",
   "description": "Financial calendar template",
   "homepage": "https://github.com/copiadigital/financial-calendar",
   "authors": [
     {
+      "name": "Chris Willmott",
+      "email": "chris.willmott@copiadigital.com",
+      "homepage": "https://github.com/teaforchris"
+    },
+    {
+      "name": "Jayson Garcia",
+      "email": "jayson.garcia@copiadigital.com",
+      "homepage": "https://github.com/hallowichig0"
+    },
+    {
       "name": "Copia Digital Dev Team",
       "email": "info@copiadigital.com",
       "homepage": "https://github.com/copiadigital"
     }
-  ],
-  "keywords": [
-    "wordpress"
   ],
   "autoload": {
     "psr-4": {
@@ -20,7 +27,7 @@
     }
   },
   "require": {
-    "php": "^7.1|^8.0"
+    "php": "^8.0"
   },
   "minimum-stability": "dev",
   "prefer-stable": true
