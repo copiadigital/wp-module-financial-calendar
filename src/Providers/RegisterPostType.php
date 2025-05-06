@@ -20,6 +20,7 @@ class RegisterPostType implements Provider
 
         array_push($types, CPT::createPostType('calendar')
             ->setPublic(true)
+            ->setPubliclyQueryable(false)
             ->setMenuPosition(27)
             ->setMenuIcon('dashicons-calendar-alt')
             ->setSupports(['title', 'revisions'])
