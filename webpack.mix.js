@@ -28,6 +28,16 @@ mix
   .autoload({
     jquery: ['$', 'window.jQuery']
   })
-  .options({ processCssUrls: false })
+  .options({
+    processCssUrls: false,
+    terser: {
+      extractComments: false,
+      terserOptions: {
+        compress: {
+          drop_console: true,
+        },
+      },
+    },
+  })
   .sourceMaps(false, 'source-map')
   .version();
