@@ -2,7 +2,7 @@
   <div class="row">
     @if($build['title'])
       <div class="col-12">
-        <h3>{!! $build['title'] !!}</h3>
+        <p class="h3">{!! $build['title'] !!}</p>
       </div>
     @endif
 
@@ -29,9 +29,9 @@
             @hasposts($query)
               <table>
                 <thead>
-                <th width="20%">Date</th>
-                <th width="60%">Title</th>
-                <th width="20%">Add to calendar</th>
+                  <th width="20%">Date</th>
+                  <th width="60%">Title</th>
+                  <th width="20%">Add to calendar</th>
                 </thead>
                 <tbody>
                   @posts($query)
