@@ -5,7 +5,7 @@ namespace FinancialCalendar\Fields\Partials;
 use Log1x\AcfComposer\Partial;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 
-class FinancialCalendar extends Partial
+class Calendar extends Partial
 {
     /**
      * The partial field group.
