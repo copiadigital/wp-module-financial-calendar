@@ -70,6 +70,6 @@ class FinancialCalendarServiceProvider implements Provider
         // Register views
         View::addLocation(dirname(dirname(__DIR__)) . '/resources/views');
 
-        View::composer('FinancialCalendar::partials.builder.calendar', CalendarComposer::class);
+        View::composer('partials.builder.calendar', CalendarComposer::class);
     }
 }
