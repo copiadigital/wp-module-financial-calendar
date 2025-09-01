@@ -14,8 +14,8 @@ class RegisterAssets implements Provider
         //
     }
 
-    public function enqueue() {
-
-        wp_enqueue_script('calendar.js', get_template_directory_uri() . '/modules/financial-calendar/public/scripts/calendar.js', ['jquery'], null, true);
+    public function enqueue()
+    {
+        wp_enqueue_script('calendar', asset('scripts/modules/calendar.js')->uri(), ['vendor', 'jquery'], null, true);
     }
 }
