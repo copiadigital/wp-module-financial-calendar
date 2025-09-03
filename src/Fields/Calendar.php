@@ -14,7 +14,7 @@ class Calendar extends Field
      */
     public function fields()
     {
-        $Calendar = new FieldsBuilder('calendar', [
+        $Fields = new FieldsBuilder('calendar', [
             'title' => 'Fields',
             'menu_order' => 0,
             'position' => 'normal',
@@ -25,10 +25,10 @@ class Calendar extends Field
             'show_in_rest' => 0,
         ]);
 
-        $Calendar
+        $Fields
             ->setLocation('post_type', '==', 'calendar');
 
-        $Calendar
+        $Fields
             ->addDatePicker('date', [
                 'label' => 'Date',
                 'instructions' => 'Please select a date from the date picker field below.',
@@ -37,6 +37,6 @@ class Calendar extends Field
                 'first_day' => 1,
             ]);
 
-        return $Calendar->build();
+        return $Fields->build();
     }
 }
