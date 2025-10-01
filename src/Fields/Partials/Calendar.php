@@ -3,7 +3,7 @@
 namespace FinancialCalendar\Fields\Partials;
 
 use Log1x\AcfComposer\Partial;
-use StoutLogic\AcfBuilder\FieldsBuilder;
+use Log1x\AcfComposer\Builder;
 
 class Calendar extends Partial
 {
@@ -14,7 +14,7 @@ class Calendar extends Partial
      */
     public function fields()
     {
-        $Fields = new FieldsBuilder('calendar');
+        $Fields = Builder::make('calendar');
 
         $Fields
             ->addText('title', [

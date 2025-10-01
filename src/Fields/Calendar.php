@@ -3,7 +3,7 @@
 namespace FinancialCalendar\Fields;
 
 use Log1x\AcfComposer\Field;
-use StoutLogic\AcfBuilder\FieldsBuilder;
+use Log1x\AcfComposer\Builder;
 
 class Calendar extends Field
 {
@@ -14,7 +14,7 @@ class Calendar extends Field
      */
     public function fields()
     {
-        $Fields = new FieldsBuilder('calendar', [
+        $Fields = Builder::make('calendar', [
             'title' => 'Fields',
             'menu_order' => 0,
             'position' => 'normal',
