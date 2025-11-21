@@ -1,3 +1,5 @@
+@vite(['modules/wp-module-financial-calendar/resources/scripts/calendar.js'])
+
 <div class="section calendar">
   <div class="row">
     @if($build['title'])

@@ -16,6 +16,6 @@ class RegisterAssets implements Provider
 
     public function enqueue()
     {
-        wp_enqueue_script('calendar', asset('scripts/modules/calendar.js')->uri(), ['vendor', 'jquery'], null, true);
+
     }
 }
