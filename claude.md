@@ -37,7 +37,7 @@ resources/
 Module is installed in a WordPress theme. Assets are compiled from the parent theme:
 
 ```bash
-yarn start  # Development with HMR
+yarn dev  # Development with HMR
 yarn build  # Production build
 ```
 
