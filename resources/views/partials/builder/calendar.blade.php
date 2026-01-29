@@ -101,21 +101,21 @@
             @endphp
 
             @hasposts($query)
-              <table class="calendar__table tw-w-full tw-border-collapse">
+              <table class="calendar__table tw-w-full">
                 <thead class="calendar__table-head">
                   <tr>
-                    <th class="calendar__table-head-date tw-w-[20%] tw-p-20">Date</th>
-                    <th class="calendar__table-head-title tw-w-[60%] tw-p-20">Title</th>
-                    <th class="calendar__table-head-action tw-w-[20%] tw-p-20">Add to calendar</th>
+                    <th class="calendar__table-head-date tw-w-[20%] tw-border tw-border-gray-200 tw-p-8 tw-font-bold tw-bg-gray-200">Date</th>
+                    <th class="calendar__table-head-title tw-w-[60%] tw-border tw-border-gray-200 tw-p-8 tw-font-bold tw-bg-gray-200">Title</th>
+                    <th class="calendar__table-head-action tw-w-[20%] tw-border tw-border-gray-200 tw-p-8 tw-font-bold tw-bg-gray-200">Add to calendar</th>
                   </tr>
                 </thead>
                 <tbody class="calendar__table-body">
                   @posts($query)
                     @php $date = get_field('date', get_the_ID()) @endphp
                     <tr>
-                      <td class="calendar__table-body-date event-date tw-p-20">{{ $date }}</td>
-                      <td class="calendar__table-body-title event-title tw-p-20">@title</td>
-                      <td class="calendar__table-body-action tw-p-20">
+                      <td class="calendar__table-body-date event-date tw-border tw-border-gray-200 tw-p-8">{{ $date }}</td>
+                      <td class="calendar__table-body-title event-title tw-border tw-border-gray-200 tw-p-8">@title</td>
+                      <td class="calendar__table-body-action tw-border tw-border-gray-200 tw-p-8">
                         <a href="#"
                           aria-label="Add to calendar"
                           @click="addToCalendar($event)"
