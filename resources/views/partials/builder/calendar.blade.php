@@ -2,6 +2,7 @@
 
 <div class="section calendar"
   x-data="{
+    activeTab: '{{ $calendar_years[0]->slug ?? '' }}',
     addToCalendar(e) {
       e.preventDefault();
       const link = e.currentTarget;
@@ -50,31 +51,40 @@
     }
   }"
 >
-  <div class="row">
+  <div class="calendar__container">
     @if($build['title'])
-      <div class="col-12">
-        <p class="h3">{!! $build['title'] !!}</p>
+      <div class="calendar__title">
+        <p class="tw-text-h3">{!! $build['title'] !!}</p>
       </div>
     @endif
 
-    <div class="calendar-list col-12">
-      <div class="nav nav-pills mb-3" role="tablist">
+    <div class="calendar__list">
+      <ul class="calendar__nav tw-list-none tw-p-0 tw-m-0 tw-flex tw-flex-wrap tw-border-b tw-border-gray-200" role="tablist">
         @foreach($calendar_years as $calendar_year)
-          <a class="nav-link {{ $loop->first ? 'active' : '' }}"
-            data-bs-toggle="pill"
-            href="#year-{{ $calendar_year->slug }}"
-            role="tab"
-            aria-controls="year-{{ $calendar_year->slug }}"
-            aria-selected="{{ $loop->first ? 'true' : 'false' }}"
-          >
-            {!! $calendar_year->name !!}
-          </a>
+          <li class="calendar__nav-item" role="presentation">
+            <button
+              type="button"
+              class="calendar__nav-link tw-px-10 tw-py-10 tw-border-b-2 tw-transition-colors"
+              :class="activeTab === '{{ $calendar_year->slug }}' ? 'tw-border-current tw-font-semibold' : 'tw-border-transparent hover:tw-border-gray-300'"
+              @click="activeTab = '{{ $calendar_year->slug }}'"
+              role="tab"
+              :aria-selected="activeTab === '{{ $calendar_year->slug }}'"
+              aria-controls="year-{{ $calendar_year->slug }}"
+            >
+              {!! $calendar_year->name !!}
+            </button>
+          </li>
         @endforeach
-      </div>
+      </ul>
 
-      <div class="tab-content">
+      <div class="calendar__tab-content tw-mt-40">
         @foreach($calendar_years as $calendar_year)
-          <div class="tab-pane fade {{ $loop->first ? 'show active' : '' }}"
+          <div
+            x-show="activeTab === '{{ $calendar_year->slug }}'"
+            x-transition:enter="tw-transition tw-ease-out tw-duration-200"
+            x-transition:enter-start="tw-opacity-0"
+            x-transition:enter-end="tw-opacity-100"
+            class="calendar__tab-pane"
             id="year-{{ $calendar_year->slug }}"
             role="tabpanel"
             aria-labelledby="year-{{ $calendar_year->slug }}-tab"
@@ -91,19 +101,21 @@
             @endphp
 
             @hasposts($query)
-              <table>
-                <thead>
-                  <th width="20%">Date</th>
-                  <th width="60%">Title</th>
-                  <th width="20%">Add to calendar</th>
+              <table class="calendar__table tw-w-full tw-border-collapse">
+                <thead class="calendar__table-head">
+                  <tr>
+                    <th class="calendar__table-head-date tw-w-[20%] tw-p-20">Date</th>
+                    <th class="calendar__table-head-title tw-w-[60%] tw-p-20">Title</th>
+                    <th class="calendar__table-head-action tw-w-[20%] tw-p-20">Add to calendar</th>
+                  </tr>
                 </thead>
-                <tbody>
+                <tbody class="calendar__table-body">
                   @posts($query)
                     @php $date = get_field('date', get_the_ID()) @endphp
                     <tr>
-                      <td class="event-date">{{ $date }}</td>
-                      <td class="event-title">@title</td>
-                      <td class="add-to-calendar">
+                      <td class="calendar__table-body-date event-date tw-p-20">{{ $date }}</td>
+                      <td class="calendar__table-body-title event-title tw-p-20">@title</td>
+                      <td class="calendar__table-body-action tw-p-20">
                         <a href="#"
                           aria-label="Add to calendar"
                           @click="addToCalendar($event)"
