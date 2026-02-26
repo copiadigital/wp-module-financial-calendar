@@ -15,7 +15,6 @@ class FinancialCalendarServiceProvider implements Provider
     protected function providers()
     {
         return [
-            RegisterAssets::class,
             RegisterPostType::class,
         ];
     }
