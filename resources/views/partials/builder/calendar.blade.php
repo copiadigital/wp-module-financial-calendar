@@ -54,18 +54,18 @@
   <div class="calendar__container">
     @if($build['title'])
       <div class="calendar__title">
-        <p class="tw-text-h3">{!! $build['title'] !!}</p>
+        <p class="text-h3">{!! $build['title'] !!}</p>
       </div>
     @endif
 
     <div class="calendar__list">
-      <ul class="calendar__nav tw-list-none tw-p-0 tw-m-0 tw-flex tw-flex-wrap tw-border-b tw-border-gray-200" role="tablist">
+      <ul class="calendar__nav list-none p-0 m-0 flex flex-wrap border-b border-gray-200" role="tablist">
         @foreach($calendar_years as $calendar_year)
           <li class="calendar__nav-item" role="presentation">
             <button
               type="button"
-              class="calendar__nav-link tw-px-10 tw-py-10 tw-border-b-2 tw-transition-colors"
-              :class="activeTab === '{{ $calendar_year->slug }}' ? 'tw-border-current tw-font-semibold' : 'tw-border-transparent hover:tw-border-gray-300'"
+              class="calendar__nav-link px-10 py-10 border-b-2 transition-colors"
+              :class="activeTab === '{{ $calendar_year->slug }}' ? 'border-current font-semibold' : 'border-transparent hover:border-gray-300'"
               @click="activeTab = '{{ $calendar_year->slug }}'"
               role="tab"
               :aria-selected="activeTab === '{{ $calendar_year->slug }}'"
@@ -77,13 +77,13 @@
         @endforeach
       </ul>
 
-      <div class="calendar__tab-content tw-mt-40">
+      <div class="calendar__tab-content mt-40">
         @foreach($calendar_years as $calendar_year)
           <div
             x-show="activeTab === '{{ $calendar_year->slug }}'"
-            x-transition:enter="tw-transition tw-ease-out tw-duration-200"
-            x-transition:enter-start="tw-opacity-0"
-            x-transition:enter-end="tw-opacity-100"
+            x-transition:enter="transition ease-out duration-200"
+            x-transition:enter-start="opacity-0"
+            x-transition:enter-end="opacity-100"
             class="calendar__tab-pane"
             id="year-{{ $calendar_year->slug }}"
             role="tabpanel"
@@ -101,21 +101,21 @@
             @endphp
 
             @hasposts($query)
-              <table class="calendar__table tw-w-full">
+              <table class="calendar__table w-full">
                 <thead class="calendar__table-head">
                   <tr>
-                    <th class="calendar__table-head-date tw-w-[20%] tw-border tw-border-gray-200 tw-p-8 tw-font-bold tw-bg-gray-200">Date</th>
-                    <th class="calendar__table-head-title tw-w-[60%] tw-border tw-border-gray-200 tw-p-8 tw-font-bold tw-bg-gray-200">Title</th>
-                    <th class="calendar__table-head-action tw-w-[20%] tw-border tw-border-gray-200 tw-p-8 tw-font-bold tw-bg-gray-200">Add to calendar</th>
+                    <th class="calendar__table-head-date w-[20%] border border-gray-200 p-8 font-bold bg-gray-200">Date</th>
+                    <th class="calendar__table-head-title w-[60%] border border-gray-200 p-8 font-bold bg-gray-200">Title</th>
+                    <th class="calendar__table-head-action w-[20%] border border-gray-200 p-8 font-bold bg-gray-200">Add to calendar</th>
                   </tr>
                 </thead>
                 <tbody class="calendar__table-body">
                   @posts($query)
                     @php $date = get_field('date', get_the_ID()) @endphp
                     <tr>
-                      <td class="calendar__table-body-date event-date tw-border tw-border-gray-200 tw-p-8">{{ $date }}</td>
-                      <td class="calendar__table-body-title event-title tw-border tw-border-gray-200 tw-p-8">@title</td>
-                      <td class="calendar__table-body-action tw-border tw-border-gray-200 tw-p-8">
+                      <td class="calendar__table-body-date event-date border border-gray-200 p-8">{{ $date }}</td>
+                      <td class="calendar__table-body-title event-title border border-gray-200 p-8">@title</td>
+                      <td class="calendar__table-body-action border border-gray-200 p-8">
                         <a href="#"
                           aria-label="Add to calendar"
                           @click="addToCalendar($event)"
